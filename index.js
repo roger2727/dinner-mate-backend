@@ -15,9 +15,10 @@ app.use(express.json());
 // Root route
 app.get("/", (requ, res) => res.send({ info: "Dinner Mate" }));
 
-// routes
+// routes for auth
 app.use("/auth", authRoutes);
 
+// routes for recipes
 app.use('/recipes', recipeRoutes)
 
 app.listen(port, () => console.log('App running at http://localhost:${port}/'));

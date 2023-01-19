@@ -1,5 +1,6 @@
 import { UserModel } from './/models/user.js';
 import { RecipeModel } from './models/recipe.js';
+import { CommentModel } from './models/comment.js';
 import { dbClose } from './db.js';
 
 // Delete all existing users
@@ -25,10 +26,6 @@ console.log("Inserted users");
 
 const usersids = await UserModel.find()
 
-// const t = usersids[0]._id
-
-// console.log(String(t));
-
 const recipes = [
     {
         title: "Bacon and Eggs",
@@ -50,7 +47,7 @@ const recipes = [
         servingSize: 8,
         rating: 8,
         vegetarian: false,
-        user: String(usersids[0]._id)
+        user: String(usersids[1]._id)
     },
     {
         title: "Cereal",
@@ -78,6 +75,35 @@ const recipes = [
 
 await RecipeModel.insertMany(recipes);
 console.log("Inserted recipes");
+
+const recipeids = await RecipeModel.find()
+
+const newcomments = [
+    {
+        title: "WOW",
+        commentText: "Best thing ever!",
+        user: String(usersids[1]._id),
+        userRating: 10,
+        recipe: String(recipeids[0]._id),
+    },
+    {
+        title: "Terrible",
+        commentText: "Who made this, it does not make sense!",
+        user: String(usersids[2]._id),
+        userRating: 1,
+        recipe: String(recipeids[0]._id),
+    },
+    {
+        title: "Pretty good",
+        commentText: "Would give it another try I guess",
+        user: String(usersids[0]._id),
+        userRating: 10,
+        recipe: String(recipeids[2]._id),
+    }
+]
+
+await CommentModel.insertMany(newcomments);
+console.log("Inserted comments");
 
 // Close the MongoDB connection
 dbClose();

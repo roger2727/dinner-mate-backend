@@ -144,11 +144,12 @@ router.patch("/update/:recipeId", authenticateJWT, async (req, res) => {
     recipe.title = req.body.title;
     recipe.ingredients = req.body.ingredients;
     recipe.instructions = req.body.instructions;
-    recipe.image = req.body.image;
+    recipe.category = req.body.category;
     recipe.cookingTime = req.body.cookingTime;
     recipe.servingSize = req.body.servingSize;
     recipe.rating = req.body.rating;
     recipe.vegetarian = req.body.vegetarian;
+    recipe.comments = req.body.comments;
 
     // Save the updated recipe
     await recipe.save();

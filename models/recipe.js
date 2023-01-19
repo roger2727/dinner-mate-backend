@@ -52,9 +52,10 @@ const recipeSchema = new mongoose.Schema({
   comments: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Comment",
-    default: []
+    // default: []
   }]
 });
+
 const RecipeModel = mongooseConnection.model("Recipe", recipeSchema);
 
 export { RecipeModel };
