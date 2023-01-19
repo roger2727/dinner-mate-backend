@@ -1,10 +1,9 @@
 # **Dinner Mate Backend**
 
-Link to T3A2-A Documentaion [_click here_](https://github.com/roger2727/MitchellRoger_T3A2-A).
-Link to Dinner Mate Backend Github repo [_click here_](https://github.com/roger2727/dinner-mate-backend).
-Link to Dinner Mate frontend [_click here_](https://github.com/roger2727/dinner-mate-frontend).
+T3A2-A Documentaion Github repo [_click here_](https://github.com/roger2727/MitchellRoger_T3A2-A).\
+Dinner Mate Backend Github repo [_click here_](https://github.com/roger2727/dinner-mate-backend).\
+Dinner Mate frontend Github repo [_click here_](https://github.com/roger2727/dinner-mate-frontend).
 
-link to Trello Implementation plan [_click here_](https://trello.com/b/cbYkzz9g/full-stack-app).
 <br>
 
 # Table of Contents
