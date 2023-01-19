@@ -23,6 +23,12 @@ const users = [
 await UserModel.insertMany(users);
 console.log("Inserted users");
 
+const usersids = await UserModel.find()
+
+// const t = usersids[0]._id
+
+// console.log(String(t));
+
 const recipes = [
     {
         title: "Bacon and Eggs",
@@ -33,7 +39,7 @@ const recipes = [
         servingSize: 4,
         rating: 9,
         vegetarian: false,
-        user: "63c8aa222186b9bf3a47ddd8"
+        user: String(usersids[0]._id)
     },
     {
         title: "Pasta",
@@ -44,7 +50,7 @@ const recipes = [
         servingSize: 8,
         rating: 8,
         vegetarian: false,
-        user: "63c8aa222186b9bf3a47ddd8"     
+        user: String(usersids[0]._id)
     },
     {
         title: "Cereal",
@@ -55,7 +61,18 @@ const recipes = [
         servingSize: 1,
         rating: 5,
         vegetarian: true,
-        user: "63c8aa222186b9bf3a47ddd8"      
+        user: String(usersids[0]._id)     
+    },
+    {
+        title: "Cereal",
+        ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
+        instructions: ["Put cereal in bowl", "Put milk in", "Add toppings", "Enjoy!"],
+        category: categories[0],
+        cookingTime: 5,
+        servingSize: 1,
+        rating: 5,
+        vegetarian: true,
+        user: String(usersids[0]._id)     
     },
 ]
 
