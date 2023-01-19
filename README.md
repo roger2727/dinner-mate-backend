@@ -16,6 +16,8 @@ Dinner Mate frontend Github repo [_click here_](https://github.com/roger2727/din
 
 # **Database system used for this project and why?**
 
+we chose MongoDB as my database for this project because it offers a lot of benefits over other databases. Firstly, MongoDB's document-based data model is perfect for the recipe storage app because it allows me to store and retrieve the different fields and properties of a recipe in a flexible and dynamic way. Additionally, MongoDB is highly scalable, which will come in handy as my recipe app grows and handles more traffic and data. Furthermore, MongoDB's memory-mapped storage engine makes it a great choice for web applications that need to perform a lot of read and write operations. This makes it a perfect choice for my recipe app. MongoDB is also relatively easy to use and comes with a large community that provides support, tutorials and other resources. These factors made MongoDB the best choice for the app
+
 <br>
 
 <br>
