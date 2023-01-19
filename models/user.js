@@ -7,6 +7,7 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true },
   username: { type: String, required: true },
 });
+
 const UserModel = mongooseConnection.model("User", userSchema);
 
 export { UserModel };
