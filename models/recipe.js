@@ -12,10 +12,12 @@ const recipeSchema = new mongoose.Schema({
       required: true,
     },
   ],
-  instructions: {
-    type: Array,
+  instructions: [
+    {
+    type: String,
     required: true,
-  },
+    }
+  ],
   category: {
     type: String,
     required: true,
@@ -49,7 +51,8 @@ const recipeSchema = new mongoose.Schema({
   },
   comments: [{
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Comment" 
+    ref: "Comment",
+    default: []
   }]
 });
 const RecipeModel = mongooseConnection.model("Recipe", recipeSchema);

@@ -1,5 +1,6 @@
 import express from "express";
 import authRoutes from "./routes/auth-routes.js";
+import recipeRoutes from "./routes/recipe-routes.js";
 import cors from "cors";
 
 const app = express();
@@ -17,6 +18,7 @@ app.get("/", (requ, res) => res.send({ info: "Dinner Mate" }));
 // routes
 app.use("/auth", authRoutes);
 
+app.use('/recipes', recipeRoutes)
 
 app.listen(port, () => console.log('App running at http://localhost:${port}/'));
 
