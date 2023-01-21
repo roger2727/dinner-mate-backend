@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watchAll",
     "start": "node index.js"
   },
   "keywords": [],
@@ -27,5 +27,10 @@
     "url": "https://github.com/roger2727/dinner-mate-backend/issues"
   },
   "homepage": "https://github.com/roger2727/dinner-mate-backend#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.3.1",
+    "supertest": "^6.3.3",
+    "supertest-session": "^4.1.0"
+  }
 }
