@@ -4,8 +4,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+
+ 
+
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --detectOpenHandles --watchAll",
     "start:dev": "nodemon index.js --watch 'test/**/*.js'"
+
+    
+
   },
   "keywords": [],
   "author": "",
@@ -29,7 +35,9 @@
   "description": "",
   "devDependencies": {
     "jest": "^29.3.1",
+
     "nodemon": "^2.0.20",
+
     "supertest": "^6.3.3",
     "supertest-session": "^4.1.0"
   }
