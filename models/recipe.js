@@ -14,13 +14,14 @@ const recipeSchema = new mongoose.Schema({
   ],
   instructions: [
     {
-    type: String,
-    required: true,
-    }
+      type: String,
+      required: true,
+    },
   ],
   category: {
     type: String,
     required: true,
+    enum: ["dinner", "breakfast", "lunch", "dessert"],
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -49,11 +50,13 @@ const recipeSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  comments: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Comment",
-    // default: []
-  }]
+  comments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Comment",
+      // default: []
+    },
+  ],
 });
 
 const RecipeModel = mongooseConnection.model("Recipe", recipeSchema);

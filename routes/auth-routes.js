@@ -45,7 +45,6 @@ router.post("/register", async (req, res) => {
     // Send the new user as the response
     res.status(201).json({ user: insertedUser });
   } catch (err) {
-    // console.log(err);
     res.status(500).json({ error: err.message });
   }
 });
