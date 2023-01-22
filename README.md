@@ -11,6 +11,7 @@ Dinner Mate frontend Github repo [_click here_](https://github.com/roger2727/din
 - [Database Info](#database-system-used-for-this-project-and-why)
 - [Models Info](#models)
 - [End Points](#api-endpoints)
+- [Testing](#tests)
 
 <br>
 
@@ -71,3 +72,37 @@ we chose MongoDB as my database for this project because it offers a lot of bene
 
 <br>
 <br>
+
+# **Tests**
+
+```javascript
+describe("POST /auth/login", () => {
+  let user;
+  beforeEach(async () => {
+    // Create a new user in the test database
+    const password = await bcrypt.hash("password", 12);
+    user = new UserModel({
+      email: "test@example.com",
+      password,
+      username: "testuser",
+    });
+    await user.save();
+  });
+
+  afterEach(async () => {
+    // Delete the test user from the test database
+    await UserModel.deleteMany({});
+  });
+
+  it("should return a token and a message on successful login", async () => {
+    // Send the email and password in the request body
+    const res = await request(app)
+      .post("/auth/login")
+      .send({ email: "test@example.com", password: "password" })
+      .expect(200);
+
+    expect(res.body).toHaveProperty("token");
+    expect(res.body).toHaveProperty("msg", "You have successfully logged in");
+  });
+});
+```
