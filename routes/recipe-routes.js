@@ -1,12 +1,104 @@
+import multer from "multer";
 import express from "express";
 import { RecipeModel } from "../models/recipe.js";
+import { UserModel } from "../models/user.js";
 import authenticateJWT from "../middleware/jwt-auth.js";
 import dotenv from "dotenv";
+
 import mongoose from "mongoose";
+import { v2 as cloudinary } from "cloudinary";
+// import multer from "multer";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.CLOUD_API_KEY,
+  api_secret: process.env.CLOUD_API_SECRET,
+});
 
 dotenv.config();
+
 // console.log(process.env.JWT_SECRET);
+
 const router = express.Router();
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+const upload = multer({ storage: storage });
+
+router.post("/", authenticateJWT, async (req, res) => {
+  try {
+    const {
+      title,
+      isPublic,
+      ingredients,
+      instructions,
+      category,
+      cookingTime,
+      servingSize,
+      rating,
+      vegetarian,
+      comments,
+    } = req.body;
+    const { userId } = req.user;
+    console.log("route handler called");
+    console.log("finding user");
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    console.log("creating recipe object");
+    const recipe = new RecipeModel({
+      title,
+      isPublic,
+      ingredients,
+      instructions,
+      user: userId,
+      category,
+      cookingTime,
+      servingSize,
+      rating,
+      vegetarian,
+      comments,
+    });
+    await recipe.save();
+    console.log("recipe saved");
+    res.send({ recipe });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+});
+
+router.post("/upload-image/:recipeId", authenticateJWT, async (req, res) => {
+  try {
+    console.log(req.params);
+    const recipeId = req.params.recipeId;
+    console.log(recipeId);
+    const recipe = await RecipeModel.findById(recipeId);
+    if (!recipe) {
+      return res.status(404).send({ error: "Recipe not found" });
+    }
+    // Use multer to handle the image file
+    const upload = multer({ storage: storage }).single("image");
+    upload(req, res, async (err) => {
+      if (err) {
+        return res.status(500).send({ error: err.message });
+      }
+      // Use cloudinary to upload the image
+      const result = await cloudinary.uploader.upload(req.file.path);
+      recipe.image = result.secure_url;
+      await recipe.save();
+      res.send({ recipe });
+    });
+  } catch (error) {
+    res.status(500).send({ error: error.message });
+  }
+});
 
 // GETS ALL USERS RECIPES
 router.get("/all", authenticateJWT, async (req, res) => {
@@ -23,64 +115,63 @@ router.get("/all", authenticateJWT, async (req, res) => {
 
 // GETS ALL RECIPES
 router.get("/public", authenticateJWT, async (req, res) => {
-    try {
-      //Find all recipes created by the current user
-      const recipes = await RecipeModel.find();
-      // Send the recipes as the response
-      res.json({ recipes });
-    } catch (err) {
-      console.log("error", err);
-      res.status(500).json({ error: err.message });
-    }
-  });
-
-
-router.post("/add", authenticateJWT, async (req, res) => {
-  const {
-    title,
-    ingredients,
-    instructions,
-    category,
-    cookingTime,
-    servingSize,
-    rating,
-    vegetarian,
-    comments
-  } = req.body;
   try {
-    // Check if a recipe with the same title and user already exists in the database
-    const existingRecipe = await RecipeModel.findOne({
-      title: title,
-      user: req.user.userId,
-    });
-    if (existingRecipe) {
-      return res.status(400).json({
-        error: "A recipe with the same title already exists for this user",
-      });
-    }
-
-    const newRecipe = {
-      title,
-      ingredients,
-      instructions,
-      category,
-      cookingTime,
-      servingSize,
-      rating,
-      vegetarian,
-      comments,
-      user: req.user.userId,
-    };
-
-    // Insert the new recipe into the database
-    const insertedRecipe = await RecipeModel.create(newRecipe);
-
-    // Send the new recipe as the response
-    res.status(201).json({ recipe: insertedRecipe });
+    //Find all recipes created by the current user
+    const recipes = await RecipeModel.find();
+    // Send the recipes as the response
+    res.json({ recipes });
   } catch (err) {
+    console.log("error", err);
     res.status(500).json({ error: err.message });
   }
 });
+
+// router.post("/add", authenticateJWT, async (req, res) => {
+//   const {
+//     title,
+//     ingredients,
+//     instructions,
+//     category,
+//     cookingTime,
+//     servingSize,
+//     rating,
+//     vegetarian,
+//     comments,
+//   } = req.body;
+//   try {
+//     // Check if a recipe with the same title and user already exists in the database
+//     const existingRecipe = await RecipeModel.findOne({
+//       title: title,
+//       user: req.user.userId,
+//     });
+//     if (existingRecipe) {
+//       return res.status(400).json({
+//         error: "A recipe with the same title already exists for this user",
+//       });
+//     }
+
+//     const newRecipe = {
+//       title,
+//       ingredients,
+//       instructions,
+//       category,
+//       cookingTime,
+//       servingSize,
+//       rating,
+//       vegetarian,
+//       comments,
+//       user: req.user.userId,
+//     };
+
+//     // Insert the new recipe into the database
+//     const insertedRecipe = await RecipeModel.create(newRecipe);
+
+//     // Send the new recipe as the response
+//     res.status(201).json({ recipe: insertedRecipe });
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// });
 //SEARCH USERS RECIPES FOR SPECIFIC INGREDIENTS
 router.get("/search-ingredients", authenticateJWT, async (req, res) => {
   try {
@@ -158,6 +249,18 @@ router.patch("/update/:recipeId", authenticateJWT, async (req, res) => {
     res.json({ recipe });
   } catch (err) {
     console.log("error", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.get("/home", async (req, res) => {
+  try {
+    const randomRecipes = await RecipeModel.aggregate([
+      { $match: { isPublic: true } },
+      { $sample: { size: 3 } },
+    ]);
+    res.json(randomRecipes);
+  } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });

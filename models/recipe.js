@@ -21,7 +21,7 @@ const recipeSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ["dinner", "breakfast", "lunch", "dessert"],
+    enum: ["Dinner", "Breakfast", "Lunch", "Dessert"],
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -45,6 +45,13 @@ const recipeSchema = new mongoose.Schema({
   vegetarian: {
     type: Boolean,
     required: true,
+  },
+  isPublic: {
+    type: Boolean,
+    default: false,
+  },
+  image: {
+    type: String,
   },
   createdAt: {
     type: Date,
