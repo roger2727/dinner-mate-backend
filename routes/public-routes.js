@@ -70,8 +70,9 @@ router.get('/:recipeId', async (req, res) => {
         const comments = await CommentModel.find({
             recipe: recipe
         })
-        // const publicRating = 
-        res.json({ recipe, comments })
+        const publicRating = comments.reduce((total, next) => total + next.userRating, 0) / comments.length;
+        console.log(publicRating)
+        res.json({ recipe, comments, publicRating })
     } catch (err) {
         console.log("error", err);
         res.status(500).json({ error: err.message });
