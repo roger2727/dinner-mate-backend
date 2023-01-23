@@ -114,10 +114,10 @@ router.get("/all", authenticateJWT, async (req, res) => {
 });
 
 // GETS ALL RECIPES
-router.get("/public", authenticateJWT, async (req, res) => {
+router.get("/public", async (req, res) => {
   try {
     //Find all recipes created by the current user
-    const recipes = await RecipeModel.find();
+    const recipes = await RecipeModel.find({ isPublic: true });
     // Send the recipes as the response
     res.json({ recipes });
   } catch (err) {
@@ -126,52 +126,6 @@ router.get("/public", authenticateJWT, async (req, res) => {
   }
 });
 
-// router.post("/add", authenticateJWT, async (req, res) => {
-//   const {
-//     title,
-//     ingredients,
-//     instructions,
-//     category,
-//     cookingTime,
-//     servingSize,
-//     rating,
-//     vegetarian,
-//     comments,
-//   } = req.body;
-//   try {
-//     // Check if a recipe with the same title and user already exists in the database
-//     const existingRecipe = await RecipeModel.findOne({
-//       title: title,
-//       user: req.user.userId,
-//     });
-//     if (existingRecipe) {
-//       return res.status(400).json({
-//         error: "A recipe with the same title already exists for this user",
-//       });
-//     }
-
-//     const newRecipe = {
-//       title,
-//       ingredients,
-//       instructions,
-//       category,
-//       cookingTime,
-//       servingSize,
-//       rating,
-//       vegetarian,
-//       comments,
-//       user: req.user.userId,
-//     };
-
-//     // Insert the new recipe into the database
-//     const insertedRecipe = await RecipeModel.create(newRecipe);
-
-//     // Send the new recipe as the response
-//     res.status(201).json({ recipe: insertedRecipe });
-//   } catch (err) {
-//     res.status(500).json({ error: err.message });
-//   }
-// });
 //SEARCH USERS RECIPES FOR SPECIFIC INGREDIENTS
 router.get("/search-ingredients", authenticateJWT, async (req, res) => {
   try {
@@ -257,9 +211,17 @@ router.get("/home", async (req, res) => {
   try {
     const randomRecipes = await RecipeModel.aggregate([
       { $match: { isPublic: true } },
-      { $sample: { size: 3 } },
+      { $sample: { size: 4 } },
     ]);
-    res.json(randomRecipes);
+    const newRecipes = randomRecipes.map((recipe) => {
+      recipe.image = cloudinary.url(recipe.image, {
+        width: 300,
+        height: 300,
+        crop: "fill",
+      });
+      return recipe;
+    });
+    res.json(newRecipes);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
