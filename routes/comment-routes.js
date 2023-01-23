@@ -10,12 +10,14 @@ dotenv.config();
 const router = express.Router();
 
 // Get all comments for recipe
-router.get('/:recipeId/comments', async (req, res) => {
+router.get('/comments/:recipe', async (req, res) => {
     try {
-        const comments = await CommentModel.find({ 
-            recipeId: req.params.recipeId
-        })
+        // const title = JSON.parse(req.query.title);
 
+        const comments = await CommentModel.find({ 
+            recipe: req.params.recipe
+        })
+        
         res.json({ comments })
     } catch (err) {
         console.log("error", err);
@@ -24,7 +26,7 @@ router.get('/:recipeId/comments', async (req, res) => {
 });
 
 // Create new comment for recipe
-router.post('/:recipeId/add', authenticateJWT, async (req, res) => {
+router.post('/:recipe/add', authenticateJWT, async (req, res) => {
     try {
         const { title, commentText, userRating } = req.body;
         const { userId } = req.user;
@@ -42,3 +44,5 @@ router.post('/:recipeId/add', authenticateJWT, async (req, res) => {
         res.status(500).send({ error: error.message });
     }
 });
+
+export default router;
