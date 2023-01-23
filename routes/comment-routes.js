@@ -47,4 +47,29 @@ router.post('/add/:recipeId', authenticateJWT, async (req, res) => {
     }
 });
 
+router.delete("/delete/:commentId", authenticateJWT, async (req, res) => {
+    try {
+        const isValid = mongoose.Types.ObjectId.isValid(req.params.commentId);
+        if (!isValid) {
+            return res.status(500).json({ error: "Invalid recipe id" });
+        }
+
+        // Find and delete the recipe that belongs to the current user and has the specified recipeId
+        const comment = await CommentModel.findOneAndDelete({
+            _id: req.params.commentId,
+            user: req.user.userId,
+        });
+        // If no recipe is found, return a 404 error
+        if (!comment) {
+            return res.status(404).json({ error: "Comment not found" });
+        }
+
+        // Send a success message as the response
+        res.json({ message: "Comment successfully deleted" });
+    } catch (err) {
+        console.log("error", err);
+        res.status(500).json({ error: err.message });
+    }   
+})
+
 export default router;
