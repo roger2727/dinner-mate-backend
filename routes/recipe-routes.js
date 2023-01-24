@@ -32,31 +32,6 @@ router.get("/get-all", async (req, res) => {
   }
 });
 
-// GETS ALL RECIPES
-router.get("/get-all", async (req, res) => {
-  try {
-    //Find all recipes created by the current user
-    const recipes = await RecipeModel.find({ isPublic: true });
-    // Send the recipes as the response
-    res.json({ recipes });
-  } catch (err) {
-    console.log("error", err);
-    res.status(500).json({ error: err.message });
-  }
-});
-
-// GETS ALL RECIPES
-router.get("/get-all", async (req, res) => {
-  try {
-    //Find all recipes created by the current user
-    const recipes = await RecipeModel.find({ isPublic: true });
-    // Send the recipes as the response
-    res.json({ recipes });
-  } catch (err) {
-    console.log("error", err);
-    res.status(500).json({ error: err.message });
-  }
-});
 // get 4 random recipes for home page
 router.get("/home", async (req, res) => {
   try {
