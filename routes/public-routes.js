@@ -60,6 +60,24 @@ router.get("/search-ingredients", async (req, res) => {
   }
 });
 
+//SEARCH USERS RECIPES FOR title
+router.get("/search-title", async (req, res) => {
+  try {
+    // Get the ingredients from the query parameters
+    const title = JSON.parse(req.query.title);
+    // Find all recipes that contain the ingredients
+    const recipes = await RecipeModel.find({
+      title: { $in: title },
+      isPublic: true
+    });
+    // Send the recipes as the response
+    res.json({ recipes });
+  } catch (err) {
+    console.log("error", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Get specific recipe and comments
 router.get("/:recipeId", async (req, res) => {
   try {
@@ -78,6 +96,17 @@ router.get("/:recipeId", async (req, res) => {
     console.log("error", err);
     res.status(500).json({ error: err.message });
   }
+});
+
+// route to get recipes by category
+router.get("/category/:category", (req, res) => {
+  RecipeModel.find({ category: req.params.category }, (err, recipes) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.status(200).json(recipes);
+    }
+  });
 });
 
 export default router;
