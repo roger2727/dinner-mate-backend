@@ -1,7 +1,6 @@
 import express from "express";
 import { RecipeModel } from "../models/recipe.js";
 import { CommentModel } from "../models/comment.js";
-import authenticateJWT from "../middleware/jwt-auth.js";
 import dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
 
@@ -44,14 +43,14 @@ router.get("/all", async (req, res) => {
 });
 
 //SEARCH USERS RECIPES FOR SPECIFIC INGREDIENTS
-router.get("/search-ingredients", authenticateJWT, async (req, res) => {
+router.get("/search-ingredients", async (req, res) => {
   try {
     // Get the ingredients from the query parameters
     const ingredients = JSON.parse(req.query.ingredients);
     // Find all recipes that contain the ingredients
     const recipes = await RecipeModel.find({
       ingredients: { $in: ingredients },
-      user: req.user.userId,
+      isPublic: true
     });
     // Send the recipes as the response
     res.json({ recipes });
