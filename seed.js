@@ -97,6 +97,77 @@ const recipes = [
     vegetarian: true,
     user: String(usersids[0]._id),
   },
+  {
+    image:
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,r_30,w_300/v1674465935/ivan-torres-MQUqbmszGGM-unsplash_oxbh4t.jpg",
+    isPublic: true,
+    title: "pizza",
+    ingredients: ["meat", "sauce", "topping"],
+    instructions: ["ring dominos", "pay", "wait", "Enjoy!"],
+    category: "Dinner",
+    cookingTime: 5,
+    servingSize: 1,
+    rating: 5,
+    vegetarian: true,
+    user: String(usersids[0]._id),
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_187,r_30,w_300/v1674465935/natasha-bhogal-7sStoaxfJh0-unsplash_snwlzp.jpg",
+    isPublic: true,
+    title: "nachos",
+    ingredients: ["chips", "Milk", "Any toppings"],
+    instructions: [
+      "Put cereal in bowl",
+      "Put milk in",
+      "Add toppings",
+      "Enjoy!",
+    ],
+    category: "Dinner",
+    cookingTime: 5,
+    servingSize: 1,
+    rating: 5,
+    vegetarian: true,
+    user: String(usersids[0]._id),
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_187,r_30,w_300/v1674466263/nathan-dumlao-IjovY65WQiE-unsplash_yi5j69.jpg",
+    isPublic: true,
+    title: "toast",
+    ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
+    instructions: [
+      "Put cereal in bowl",
+      "Put milk in",
+      "Add toppings",
+      "Enjoy!",
+    ],
+    category: "Breakfast",
+    cookingTime: 5,
+    servingSize: 1,
+    rating: 5,
+    vegetarian: true,
+    user: String(usersids[0]._id),
+  },
+  {
+    image:
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_scale,r_30,w_300/v1674385503/cereal-898073_1920_ofhjkf.jpg",
+    isPublic: true,
+    title: "Cereal",
+    ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
+    instructions: [
+      "Put cereal in bowl",
+      "Put milk in",
+      "Add toppings",
+      "Enjoy!",
+    ],
+    category: "Breakfast",
+    cookingTime: 5,
+    servingSize: 1,
+    rating: 5,
+    vegetarian: true,
+    user: String(usersids[0]._id),
+  },
 ];
 
 await RecipeModel.insertMany(recipes);
