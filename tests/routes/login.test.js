@@ -12,9 +12,9 @@ describe("POST /auth/login", () => {
     // Create a new user in the test database
     const password = await bcrypt.hash("password", 12);
     user = new UserModel({
-      email: "test@example.com",
+      email: "testing@example.com",
       password,
-      username: "testuser",
+      username: "testinguser",
     });
     await user.save();
   });
@@ -28,7 +28,7 @@ describe("POST /auth/login", () => {
     // Send the email and password in the request body
     const res = await request(app)
       .post("/auth/login")
-      .send({ email: "test@example.com", password: "password" })
+      .send({ email: "testing@example.com", password: "password" })
       .expect(200);
 
     expect(res.body).toHaveProperty("token");
