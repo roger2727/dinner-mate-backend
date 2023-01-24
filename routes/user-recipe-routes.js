@@ -61,6 +61,24 @@ router.get("/search-ingredients", authenticateJWT, async (req, res) => {
     }
 });
 
+//SEARCH USERS RECIPES FOR title
+router.get("/search-title", authenticateJWT, async (req, res) => {
+  try {
+    // Get the ingredients from the query parameters
+    const title = JSON.parse(req.query.title);
+    // Find all recipes that contain the ingredients
+    const recipes = await RecipeModel.find({
+      title: { $in: title },
+      user: req.user.userId,
+    });
+    // Send the recipes as the response
+    res.json({ recipes });
+  } catch (err) {
+    console.log("error", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // Post new Recipe
 router.post("/", authenticateJWT, async (req, res) => {
   try {
