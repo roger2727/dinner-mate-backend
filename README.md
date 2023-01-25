@@ -310,6 +310,23 @@ In terms of agile methodology. Each component fits our user stories that have be
 
 # **Tests**
 
+On a daily basis, I follow these steps to ensure that tests are passing and that the application is functioning correctly:
+
+1. I start by pulling the latest changes from the front-end and back-end repository. This ensures that I have the most recent version of the code and any changes made by my team members.
+
+2. Next, I run npm run test command to execute all the tests that were written to make sure all the tests are passing.
+   ![search function](docs/test-results/fulltest.png)
+
+3. I then review the test results and debug any failing tests by reviewing the test code and the application's code to identify the issue.
+
+4. Once all tests are passing, I create a pull request on the both front-end and back-end repository for my team members to review and merge.
+
+5. Finally, I update my team on Trello that tests are passing and everything is working as expected, so they know that the application is ready for use.
+
+   ![search function](docs/test-results/trello-test.png)
+
+By following these steps on a daily basis, I can ensure that the application is functioning correctly and that any changes made do not break existing functionality.
+
 # Development testing
 
 ## Server side
