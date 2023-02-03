@@ -109,9 +109,6 @@ router.get("/category/:category", (req, res) => {
   });
 });
 
-import express from "express";
-import { RecipeModel } from "./models/Recipe.js";
-
 router.get("/search-all", async (req, res) => {
   try {
     const query = req.query;
