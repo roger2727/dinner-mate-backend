@@ -1,6 +1,8 @@
 import express from "express";
 import { RecipeModel } from "../models/recipe.js";
 import { CommentModel } from "../models/comment.js";
+import { UserModel } from "../models/user.js";
+import authenticateJWT from "../middleware/jwt-auth.js";
 import dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
 
@@ -119,5 +121,31 @@ router.get("/search-all", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
+router.patch("/favourite/:recipeId", authenticateJWT, async (req, res) => {
+  try {
+    // Find the recipe by its ID and the current user's ID
+    const recipe = await RecipeModel.findOne({
+      _id: req.params.recipeId
+    });
+
+    if (!recipe) {
+          return res.status(404).json({ error: "Recipe not found" });
+        }
+
+    const { userId } = req.user;
+
+    const user = await UserModel.findById(userId);
+
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+    // If the recipe is not found, return a 404 status code
+    user.favourites = [... recipe]
+  } catch (err) {
+    console.log("error", err);
+    res.status(500).json({ error: err.message });
+  }
+})
 
 export default router;
