@@ -50,7 +50,7 @@ router.get("/search-ingredients", async (req, res) => {
     // Find all recipes that contain the ingredients
     const recipes = await RecipeModel.find({
       ingredients: { $in: ingredients },
-      isPublic: true
+      isPublic: true,
     });
     // Send the recipes as the response
     res.json({ recipes });
@@ -68,7 +68,7 @@ router.get("/search-title", async (req, res) => {
     // Find all recipes that contain the ingredients
     const recipes = await RecipeModel.find({
       title: { $in: title },
-      isPublic: true
+      isPublic: true,
     });
     // Send the recipes as the response
     res.json({ recipes });
