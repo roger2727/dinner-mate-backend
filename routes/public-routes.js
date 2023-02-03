@@ -109,4 +109,18 @@ router.get("/category/:category", (req, res) => {
   });
 });
 
+import express from "express";
+import { RecipeModel } from "./models/Recipe.js";
+
+router.get("/search-all", async (req, res) => {
+  try {
+    const query = req.query;
+    const excludeFields = { comments: 0, user: 0, isPublic: 0 };
+    const recipes = await RecipeModel.find(query, excludeFields).exec();
+    res.send(recipes);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 export default router;
