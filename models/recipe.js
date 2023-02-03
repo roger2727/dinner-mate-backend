@@ -39,20 +39,20 @@ const recipeSchema = new mongoose.Schema({
   rating: {
     type: Number,
     min: 0,
-    max: 10,
+    max: 5,
     required: true,
   },
   image: {
     type: String,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+  // createdAt: {
+  //   type: Date,
+  //   default: Date.now,
+  // },
   comments: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment"
+      ref: "Comment",
     },
   ],
 });
