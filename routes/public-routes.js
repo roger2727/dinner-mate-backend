@@ -14,8 +14,7 @@ const router = express.Router();
 router.get("/home", async (req, res) => {
   try {
     const randomRecipes = await RecipeModel.aggregate([
-      { $match: { isPublic: true } },
-      { $sample: { size: 4 } },
+      { $sample: { size: 4 } }
     ]);
     const newRecipes = randomRecipes.map((recipe) => {
       recipe.image = cloudinary.url(recipe.image, {
@@ -35,7 +34,7 @@ router.get("/home", async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     //Find all recipes created by the current user
-    const recipes = await RecipeModel.find({ isPublic: true });
+    const recipes = await RecipeModel.find();
     // Send the recipes as the response
     res.json({ recipes });
   } catch (err) {
@@ -52,7 +51,6 @@ router.get("/search-ingredients", async (req, res) => {
     // Find all recipes that contain the ingredients
     const recipes = await RecipeModel.find({
       ingredients: { $in: ingredients },
-      isPublic: true,
     });
     // Send the recipes as the response
     res.json({ recipes });
@@ -70,7 +68,6 @@ router.get("/search-title", async (req, res) => {
     // Find all recipes that contain the ingredients
     const recipes = await RecipeModel.find({
       title: { $in: title },
-      isPublic: true,
     });
     // Send the recipes as the response
     res.json({ recipes });
@@ -122,6 +119,32 @@ router.get("/search-all", async (req, res) => {
   }
 });
 
+// Check if Recipe is a favourite of user
+router.get("/favourite/:recipeId", authenticateJWT, async (req, res) => {
+  try {
+    const { userId } = req.user;
+
+    const user = await UserModel.findById(userId);
+
+    if (!user) {
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    const isFav = false
+
+    const usersFavourites = user.favourites
+
+    for(let i = 0; i < usersFavourites.length; i++ ) { 
+      if (usersFavourites[i] === req.params.recipeId)
+        return isFav = true;
+    }
+  } catch (err) {
+    console.log("error", err);
+    res.status(500).json({ error: err.message });
+  } 
+})
+
+// Enter recipe id as favourite for the user
 router.patch("/favourite/:recipeId", authenticateJWT, async (req, res) => {
   try {
     const { userId } = req.user;
