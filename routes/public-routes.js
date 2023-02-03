@@ -124,15 +124,6 @@ router.get("/search-all", async (req, res) => {
 
 router.patch("/favourite/:recipeId", authenticateJWT, async (req, res) => {
   try {
-    // Find the recipe by its ID and the current user's ID
-    const recipe = await RecipeModel.findOne({
-      _id: req.params.recipeId
-    });
-
-    if (!recipe) {
-          return res.status(404).json({ error: "Recipe not found" });
-        }
-
     const { userId } = req.user;
 
     const user = await UserModel.findById(userId);
@@ -140,8 +131,16 @@ router.patch("/favourite/:recipeId", authenticateJWT, async (req, res) => {
     if (!user) {
       return res.status(404).send({ error: "User not found" });
     }
+    const recipe = await RecipeModel.findOne({
+      _id: req.params.recipeId
+    });
+    if (!recipe) {
+      return res.status(404).json({ error: "Recipe not found" });
+    }
     // If the recipe is not found, return a 404 status code
-    user.favourites = [... recipe]
+    user.favourites.push(recipe);
+    user.save();
+
   } catch (err) {
     console.log("error", err);
     res.status(500).json({ error: err.message });
