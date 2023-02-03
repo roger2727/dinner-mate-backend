@@ -96,5 +96,16 @@ router.get("/", async (req, res) => {
     res.status(500).send({ error: err.message });
   }
 });
+//logout
+router.post("/logout", async (req, res) => {
+  try {
+    // Clear the user's JWT token
+    res.clearCookie("token");
+    // Send a message as the response
+    res.json({ msg: "You have successfully logged out" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
 
 export default router;
