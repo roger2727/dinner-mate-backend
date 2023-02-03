@@ -16,7 +16,11 @@ router.get("/home", async (req, res) => {
       { $sample: { size: 4 } },
     ]);
     const newRecipes = randomRecipes.map((recipe) => {
-      recipe.image = cloudinary.url(recipe.image, {});
+      recipe.image = cloudinary.url(recipe.image, {
+        width: 1000,
+        height: 1000,
+        crop: "fit",
+      });
       return recipe;
     });
     res.json(newRecipes);
