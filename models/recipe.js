@@ -42,14 +42,6 @@ const recipeSchema = new mongoose.Schema({
     max: 10,
     required: true,
   },
-  vegetarian: {
-    type: Boolean,
-    required: true,
-  },
-  isPublic: {
-    type: Boolean,
-    default: false,
-  },
   image: {
     type: String,
   },
