@@ -82,51 +82,51 @@ router.get("/search-title", authenticateJWT, async (req, res) => {
 // Post new Recipe
 router.post("/add", authenticateJWT, async (req, res) => {
   try {
-  console.log("route handler called");
-  const {
-  title,
-  ingredients,
-  instructions,
-  category,
-  cookingTime,
-  servingSize,
-  rating,
-  comments,
-  } = req.body;
-  console.log("req.body", req.body);
-  console.log("finding user");
-  const { userId } = req.user;
-  const user = await UserModel.findById(userId);
-  if (!user) {
-  console.log("user not found");
-  return res.status(404).send({ error: "User not found" });
-  }
-  
-  javascript
-  Copy code
-  console.log("creating recipe object");
-  const recipe = new RecipeModel({
-    title,
-    ingredients,
-    instructions,
-    user: userId,
-    category,
-    cookingTime,
-    servingSize,
-    rating,
-    comments,
-  });
-  
-  console.log("saving recipe");
-  await recipe.save();
-  console.log("recipe saved");
-  
-  res.send({ recipe });
+    console.log("route handler called");
+    const {
+      title,
+      ingredients,
+      instructions,
+      category,
+      cookingTime,
+      servingSize,
+      rating,
+      comments,
+    } = req.body;
+    console.log("req.body", req.body);
+    console.log("finding user");
+    const { userId } = req.user;
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      console.log("user not found");
+      return res.status(404).send({ error: "User not found" });
+    }
+
+    javascript;
+
+    console.log("creating recipe object");
+    const recipe = new RecipeModel({
+      title,
+      ingredients,
+      instructions,
+      user: userId,
+      category,
+      cookingTime,
+      servingSize,
+      rating,
+      comments,
+    });
+
+    console.log("saving recipe");
+    await recipe.save();
+    console.log("recipe saved");
+
+    res.send({ recipe });
   } catch (error) {
-  console.log("error caught");
-  res.status(500).send({ error: error.message });
+    console.log("error caught");
+    res.status(500).send({ error: error.message });
   }
-  });
+});
 
 // upload image to recipe
 router.post("/upload-image/:recipeId", authenticateJWT, async (req, res) => {
