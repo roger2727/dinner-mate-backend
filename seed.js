@@ -27,7 +27,7 @@ const usersids = await UserModel.find();
 const recipes = [
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674385504/table-2777180_1920_jrydui.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674466263/nathan-dumlao-IjovY65WQiE-unsplash_yi5j69.jpg",
     isPublic: true,
     title: "Bacon and Eggs",
     ingredients: ["eggs", "Bacon", "toast", "butter"],
@@ -41,7 +41,7 @@ const recipes = [
   },
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674385504/breakfast-g1e4a67e63_1920_adtjg0.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674465935/ivan-torres-MQUqbmszGGM-unsplash_oxbh4t.jpg",
     isPublic: true,
     title: "Pasta",
     ingredients: ["eggs", "ham", "cream", "pasta", "herbs"],
@@ -61,7 +61,7 @@ const recipes = [
   },
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674385503/macarons-2548827_1920_bwaf9m.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674465935/ca-creative-bpPTlXWTOvg-unsplash_eifmd0.jpg",
     isPublic: true,
     title: "Cereal",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
@@ -80,7 +80,7 @@ const recipes = [
   },
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674385503/cereal-898073_1920_ofhjkf.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674465935/natasha-bhogal-7sStoaxfJh0-unsplash_snwlzp.jpg",
     isPublic: true,
     title: "Cereal",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
@@ -99,7 +99,7 @@ const recipes = [
   },
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674465935/ivan-torres-MQUqbmszGGM-unsplash_oxbh4t.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674385504/table-2777180_1920_jrydui.jpg",
     isPublic: true,
     title: "pizza",
     ingredients: ["meat", "sauce", "topping"],
@@ -113,7 +113,7 @@ const recipes = [
   },
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674465935/natasha-bhogal-7sStoaxfJh0-unsplash_snwlzp.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674385503/macarons-2548827_1920_bwaf9m.jpg",
     isPublic: true,
     title: "nachos",
     ingredients: ["chips", "Milk", "Any toppings"],
@@ -132,7 +132,7 @@ const recipes = [
   },
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674466263/nathan-dumlao-IjovY65WQiE-unsplash_yi5j69.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674385503/macarons-2548827_1920_bwaf9m.jpg",
     isPublic: true,
     title: "toast",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
@@ -151,7 +151,7 @@ const recipes = [
   },
   {
     image:
-      "https://res.cloudinary.com/dkpp2nfjo/image/upload/v1674385503/cereal-898073_1920_ofhjkf.jpg",
+      "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fit,h_1000,w_1000/v1674385503/macarons-2548827_1920_bwaf9m.jpg",
     isPublic: true,
     title: "Cereal",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
