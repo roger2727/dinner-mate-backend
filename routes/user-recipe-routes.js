@@ -102,8 +102,6 @@ router.post("/add", authenticateJWT, async (req, res) => {
       return res.status(404).send({ error: "User not found" });
     }
 
-    javascript;
-
     console.log("creating recipe object");
     const recipe = new RecipeModel({
       title,
