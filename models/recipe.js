@@ -44,17 +44,7 @@ const recipeSchema = new mongoose.Schema({
   },
   image: {
     type: String,
-  },
-  // createdAt: {
-  //   type: Date,
-  //   default: Date.now,
-  // },
-  comments: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment",
-    },
-  ],
+  }
 });
 
 const RecipeModel = mongooseConnection.model("Recipe", recipeSchema);

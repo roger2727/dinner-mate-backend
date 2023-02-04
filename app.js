@@ -26,7 +26,4 @@ app.use("/recipes", userRecipeRoutes);
 // routes for public recipes
 app.use("/public", publicRoutes);
 
-// routes for comments
-app.use("/comments", commentRoutes);
-
 export default app;

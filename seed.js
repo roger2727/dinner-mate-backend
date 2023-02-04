@@ -1,6 +1,5 @@
 import { UserModel } from ".//models/user.js";
 import { RecipeModel } from "./models/recipe.js";
-import { CommentModel } from "./models/comment.js";
 import { dbClose } from "./db.js";
 
 // Delete all existing users
@@ -28,7 +27,6 @@ const recipes = [
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674466263/nathan-dumlao-IjovY65WQiE-unsplash_yi5j69.jpg",
-    isPublic: true,
     title: "Bacon and Eggs",
     ingredients: ["eggs", "Bacon", "toast", "butter"],
     instructions: ["Dice ingredients", "Fry it up", "plate on toast", "Serve"],
@@ -36,13 +34,11 @@ const recipes = [
     cookingTime: 20,
     servingSize: 4,
     rating: 9,
-    vegetarian: false,
     user: String(usersids[0]._id),
   },
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674465935/ivan-torres-MQUqbmszGGM-unsplash_oxbh4t.jpg",
-    isPublic: true,
     title: "Pasta",
     ingredients: ["eggs", "ham", "cream", "pasta", "herbs"],
     instructions: [
@@ -56,13 +52,11 @@ const recipes = [
     cookingTime: 90,
     servingSize: 8,
     rating: 8,
-    vegetarian: false,
     user: String(usersids[1]._id),
   },
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674465935/ca-creative-bpPTlXWTOvg-unsplash_eifmd0.jpg",
-    isPublic: true,
     title: "Cereal",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
     instructions: [
@@ -75,13 +69,11 @@ const recipes = [
     cookingTime: 5,
     servingSize: 1,
     rating: 4,
-    vegetarian: true,
     user: String(usersids[0]._id),
   },
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674465935/natasha-bhogal-7sStoaxfJh0-unsplash_snwlzp.jpg",
-    isPublic: true,
     title: "Cereal",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
     instructions: [
@@ -94,13 +86,11 @@ const recipes = [
     cookingTime: 5,
     servingSize: 1,
     rating: 5,
-    vegetarian: true,
     user: String(usersids[0]._id),
   },
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674385504/table-2777180_1920_jrydui.jpg",
-    isPublic: true,
     title: "pizza",
     ingredients: ["meat", "sauce", "topping"],
     instructions: ["ring dominos", "pay", "wait", "Enjoy!"],
@@ -108,13 +98,11 @@ const recipes = [
     cookingTime: 5,
     servingSize: 1,
     rating: 2,
-    vegetarian: true,
     user: String(usersids[0]._id),
   },
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674385503/macarons-2548827_1920_bwaf9m.jpg",
-    isPublic: true,
     title: "nachos",
     ingredients: ["chips", "Milk", "Any toppings"],
     instructions: [
@@ -127,13 +115,11 @@ const recipes = [
     cookingTime: 5,
     servingSize: 1,
     rating: 1,
-    vegetarian: true,
     user: String(usersids[0]._id),
   },
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674385503/macarons-2548827_1920_bwaf9m.jpg",
-    isPublic: true,
     title: "toast",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
     instructions: [
@@ -146,13 +132,11 @@ const recipes = [
     cookingTime: 5,
     servingSize: 1,
     rating: 4,
-    vegetarian: true,
     user: String(usersids[0]._id),
   },
   {
     image:
       "https://res.cloudinary.com/dkpp2nfjo/image/upload/c_fill,h_1000,w_1000/v1674385503/macarons-2548827_1920_bwaf9m.jpg",
-    isPublic: true,
     title: "Cereal",
     ingredients: ["Favourite Cereal", "Milk", "Any toppings"],
     instructions: [
@@ -165,42 +149,12 @@ const recipes = [
     cookingTime: 5,
     servingSize: 1,
     rating: 3,
-    vegetarian: true,
     user: String(usersids[0]._id),
   },
 ];
 
 await RecipeModel.insertMany(recipes);
 console.log("Inserted recipes");
-
-const recipeids = await RecipeModel.find();
-
-const newcomments = [
-  {
-    title: "WOW",
-    commentText: "Best thing ever!",
-    user: String(usersids[1]._id),
-    userRating: 10,
-    recipe: String(recipeids[0]._id),
-  },
-  {
-    title: "Terrible",
-    commentText: "Who made this, it does not make sense!",
-    user: String(usersids[2]._id),
-    userRating: 1,
-    recipe: String(recipeids[0]._id),
-  },
-  {
-    title: "Pretty good",
-    commentText: "Would give it another try I guess",
-    user: String(usersids[0]._id),
-    userRating: 10,
-    recipe: String(recipeids[2]._id),
-  },
-];
-
-await CommentModel.insertMany(newcomments);
-console.log("Inserted comments");
 
 // Close the MongoDB connection
 dbClose();

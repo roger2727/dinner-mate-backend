@@ -1,6 +1,5 @@
 import express from "express";
 import { RecipeModel } from "../models/recipe.js";
-import { CommentModel } from "../models/comment.js";
 import { UserModel } from "../models/user.js";
 import authenticateJWT from "../middleware/jwt-auth.js";
 import dotenv from "dotenv";

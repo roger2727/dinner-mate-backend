@@ -15,8 +15,6 @@ describe("GET /public/category/:category", () => {
       cookingTime: 30,
       servingSize: 4,
       rating: 5,
-      vegetarian: true,
-      isPublic: true,
     });
   });
   it("should return all public recipes of the specified category", async () => {

@@ -13,9 +13,7 @@ describe("GET /public/search-title", () => {
       user: "5f5a8a2d2c5d1b1a7f9a8a7d",
       cookingTime: 30,
       servingSize: 4,
-      rating: 5,
-      vegetarian: true,
-      isPublic: true,
+      rating: 5
     });
     await testRecipe.save();
   });

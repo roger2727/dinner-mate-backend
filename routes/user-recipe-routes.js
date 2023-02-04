@@ -91,7 +91,6 @@ router.post("/add", authenticateJWT, async (req, res) => {
       cookingTime,
       servingSize,
       rating,
-      comments,
     } = req.body;
     console.log("req.body", req.body);
     console.log("finding user");
@@ -112,7 +111,6 @@ router.post("/add", authenticateJWT, async (req, res) => {
       cookingTime,
       servingSize,
       rating,
-      comments,
     });
 
     console.log("saving recipe");
@@ -182,7 +180,6 @@ router.patch("/update/:recipeId", authenticateJWT, async (req, res) => {
     recipe.cookingTime = req.body.cookingTime;
     recipe.servingSize = req.body.servingSize;
     recipe.rating = req.body.rating;
-    recipe.comments = req.body.comments;
 
     // Save the updated recipe
     await recipe.save();
