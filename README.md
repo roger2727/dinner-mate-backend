@@ -540,7 +540,7 @@ By following these steps on a daily basis, I can ensure that the application is 
 
    Test Steps:
 
-   - Create a new recipe object with the title "Test Recipe", ingredients ["Ingredient 1", "Ingredient 2"], instructions ["Step 1", "Step 2"], a category "Dinner", a user with a random ID, a cookingTime 30, a servingSize 2, a rating 5, a vegetarian true, an isPublic true, and an image "https://example.com/image.jpg" using the RecipeModel constructor.
+   - cCreate a new recipe object with the title "Test Recipe", ingredients ["Ingredient 1", "Ingredient 2"], instructions ["Step 1", "Step 2"], a category "Dinner", a user with a random ID, a cookingTime 30, a servingSize 2, a rating 5, a vegetarian true, an isPublic true, and an image "https://example.com/image.jpg" using the RecipeModel constructor.
    - Save the recipe using the recipe.save() method.
    - Find the saved recipe using the RecipeModel.findOne({ title: "Test Recipe" }) method.
    - Check the saved recipe for the expected properties using the expect(savedRecipe).toBeDefined() and expect(savedRecipe.title).toBe("Test Recipe") methods.
