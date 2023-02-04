@@ -14,7 +14,7 @@ const router = express.Router();
 router.get("/home", async (req, res) => {
   try {
     const randomRecipes = await RecipeModel.aggregate([
-      { $sample: { size: 4 } }
+      { $sample: { size: 4 } },
     ]);
     const newRecipes = randomRecipes.map((recipe) => {
       recipe.image = cloudinary.url(recipe.image, {
@@ -110,8 +110,12 @@ router.get("/category/:category", (req, res) => {
 
 router.get("/search-all", async (req, res) => {
   try {
-    const query = req.query;
+    const searchTerm = req.query.searchTerm;
     const excludeFields = { comments: 0, user: 0, isPublic: 0 };
+    const regex = new RegExp(searchTerm, "i"); // create regex to search all fields ignoring case
+    const query = {
+      $or: [{ title: regex }, { ingredients: regex }, { description: regex }],
+    };
     const recipes = await RecipeModel.find(query, excludeFields).exec();
     res.send(recipes);
   } catch (error) {
@@ -130,19 +134,18 @@ router.get("/favourite/:recipeId", authenticateJWT, async (req, res) => {
       return res.status(404).send({ error: "User not found" });
     }
 
-    const isFav = false
+    const isFav = false;
 
-    const usersFavourites = user.favourites
+    const usersFavourites = user.favourites;
 
-    for(let i = 0; i < usersFavourites.length; i++ ) { 
-      if (usersFavourites[i] === req.params.recipeId)
-        return isFav = true;
+    for (let i = 0; i < usersFavourites.length; i++) {
+      if (usersFavourites[i] === req.params.recipeId) return (isFav = true);
     }
   } catch (err) {
     console.log("error", err);
     res.status(500).json({ error: err.message });
-  } 
-})
+  }
+});
 
 // Enter recipe id as favourite for the user
 router.patch("/favourite/:recipeId", authenticateJWT, async (req, res) => {
@@ -155,7 +158,7 @@ router.patch("/favourite/:recipeId", authenticateJWT, async (req, res) => {
       return res.status(404).send({ error: "User not found" });
     }
     const recipe = await RecipeModel.findOne({
-      _id: req.params.recipeId
+      _id: req.params.recipeId,
     });
     if (!recipe) {
       return res.status(404).json({ error: "Recipe not found" });
@@ -163,11 +166,10 @@ router.patch("/favourite/:recipeId", authenticateJWT, async (req, res) => {
     // If the recipe is not found, return a 404 status code
     user.favourites.push(recipe);
     user.save();
-
   } catch (err) {
     console.log("error", err);
     res.status(500).json({ error: err.message });
   }
-})
+});
 
 export default router;
