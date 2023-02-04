@@ -117,6 +117,9 @@ router.get("/search-all", async (req, res) => {
       $or: [{ title: regex }, { ingredients: regex }, { description: regex }],
     };
     const recipes = await RecipeModel.find(query, excludeFields).exec();
+    if (!recipes) {
+      return res.status(404).send({ error: "No recipes found" });
+    }
     res.send(recipes);
   } catch (error) {
     res.status(500).send(error);
