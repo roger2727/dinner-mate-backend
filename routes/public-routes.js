@@ -61,14 +61,12 @@ router.get("/search-ingredients", async (req, res) => {
 });
 
 //SEARCH USERS RECIPES FOR title
-router.get("/search-title", async (req, res) => {
+router.get("/search-title/:title", async (req, res) => {
   try {
-    // Get the ingredients from the query parameters
-    const title = JSON.parse(req.query.title);
-    // Find all recipes that contain the ingredients
-    const recipes = await RecipeModel.find({
-      title: { $in: title },
-    });
+    // Get the title from the route parameters
+    const title = req.params.title;
+    // Find all recipes that contain the title
+    const recipes = await RecipeModel.find({ title });
     // Send the recipes as the response
     res.json({ recipes });
   } catch (err) {
