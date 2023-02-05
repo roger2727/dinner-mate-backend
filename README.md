@@ -4,6 +4,14 @@
 
 link to Trello Implementation plan [_here_](https://trello.com/b/cbYkzz9g/full-stack-app).
 
+link to deployed app [_here_](https://dinner-mate-frontend-production.up.railway.app/).
+
+link to frontend repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app).
+
+link to backend repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app).
+
+link to documentation repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app).
+
 ## Table of Contents
 
 - [full stack app](#full-stack-app)
@@ -17,7 +25,6 @@ link to Trello Implementation plan [_here_](https://trello.com/b/cbYkzz9g/full-s
 - [**Implementation plan**](#implementation-plan)
   - [**screenshots**](#screenshots)
 - [**Wireframes**](#wireframes)
-- [End Points](#api-endpoints)
 - [Testing](#tests)
   - [Development testing](#development-testing)
   - [Production testing](#production-testing)
@@ -30,7 +37,7 @@ link to Trello Implementation plan [_here_](https://trello.com/b/cbYkzz9g/full-s
 
 - **Purpose**
 
-  The purpose of this app is to provide a centralised location for individuals to store and access their favorite recipes in one convenient place. The app allows users to easily filter recipes based on specific ingredients or dietary restrictions, making meal planning and recipe discovery more efficient. The user-friendly interface makes it easy to navigate through your recipe collection and plan your meals for the week. With this app, busy working professionals, food enthusiasts, or anyone looking to keep their recipe collection organized, can access their recipes on the go, and never have to worry about losing their favorite recipes again. This app is designed to make meal planning and recipe discovery a breeze and help you to create delicious and healthy meals.
+  The purpose of this app is to provide a centralised locations for individuals to store and access their favorite recipes in one convenient place. The app allows users to easilyd filter recipes based on specific ingredients or dietary restrictions, making meal planning and recipe discovery more efficient. The user-friendly interface makes it easy to navigate through your recipe collection and plan your meals for the week. With this app, busy working professionals, food enthusiasts, or anyone looking to keep their recipe collection organized, can access their recipes on the go, and never have to worry about losing their favorite recipes again. This app is designed to make meal planninge and recipe discovery a breeze and help you to create delicious and healthy meals.
 
 - **Functionality / features**
 
@@ -38,13 +45,13 @@ link to Trello Implementation plan [_here_](https://trello.com/b/cbYkzz9g/full-s
 
   The app also allows users to plan their meals for the week by filtering recipes based on specific ingredients or dietary restrictions. This feature makes it easy to plan out a week's worth of meals and ensure that you have all the ingredients on hand. Users can also view a random selection of the top-rated recipes on the homepage, which gives them the opportunity to discover new and exciting recipes.
 
-  The app's CRUD functionality allows users to add, view, update and delete their own personal recipe collection. This feature ensures that users have full control over their recipe collection and can easily update, add or delete recipes as needed. Users can also rate and comment on recipes, and get feedback and suggestions from other users.
+  The app's cCRUD functionality allows users to add, view, update and delete their own personal recipe collection. This feature ensures that users have full control over their recipe collection and can easily update, add or delete recipes as needed. Users can also rate and comment on recipes, and get feedback and suggestions from other users.
 
 - **Target audience**
 
   The target audience for this app would be busy working professionals, food enthusiasts and families. These groups of people have different needs but they all share a common goal, which is to make meal planning and recipe discovery easy and efficient.
 
-  Busy working professionals often have limited time to plan and prepare meals, and they would benefit greatly from an app that allows them to easily find and save recipes, and plan their meals in advance. This app's search and filter functionality and meal planning capabilities would be especially useful for this group, as they could quickly find recipes that fit their dietary restrictions and schedule.
+  Busy working professionals often have limited time to plan and prepare meals, and they would benefit greatly from an app that allows them to easily find and save recipes, and plan their meals in advance. This app's search and filter functionality and meal planning capabilities would be especially useful for this group, ass they could quickly find recipes that fit their dietary restrictions and schedule.
 
   Food enthusiasts are always looking to discover new and exciting recipes, and this app would be a great resource for them. The app's search and filter functionality would allow them to find new recipes based on their interests, and the ability to save and organize their favorite recipes would make it easy for them to try out new recipes in the future.
 
@@ -190,6 +197,13 @@ Overall, this process allowed for clear communication and organization within th
 ![Screenshots](/docs/trello/Trello-4.png)
 ![Screenshots](/docs/trello/Trello-5.png)
 ![Screenshots](docs/trello/Trello-6.png)
+![Screenshots](docs/trello/7.png)
+![Screenshots](docs/trello/8.png)
+![Screenshots](docs/trello/9.png)
+![Screenshots](docs/trello/10.png)
+![Screenshots](docs/trello/11.png)
+![Screenshots](docs/trello/12.png)
+![Screenshots](docs/trello/13.png)
 
 # **Wireframes**
 
@@ -263,47 +277,6 @@ The design ethos for these wireframes was to make navigation between all compone
 <br>
 
 In terms of agile methodology. Each component fits our user stories that have been outlined in this document. Each user story has been broken down into tasks and components which satisfy the user story criteria. The build of these wireframes will be done in a methodical approach whereby the components with the highest amount of re-usability that satisfy multiple user story criterion will be done first, and niche components specific to some screens added later in the mix.
-
-<br>
-<br>
-
-# API endpoints
-
-## auth end points
-
-| HTTP Verbs | Endpoints       | Action                  | Respose                                        |
-| ---------- | --------------- | ----------------------- | ---------------------------------------------- |
-| POST       | /auth/register/ | Register a new user     | [Response](#register-a-new-user)               |
-| GET        | /auath/login/   | login into user account | [Response](#end-point-login-into-user-account) |
-
-## Recipe endpoints
-
-<br>
-
-| HTTP   | Endpoints                       | Action                       | Respose      |
-| ------ | ------------------------------- | ---------------------------- | ------------ |
-| POST   | /recipes/                       | adds recipe                  | [Response]() |
-| POST   | /recipes/upload-image/:recipeId | adds image to recipe         | [Response]() |
-| GET    | /recipes/all                    | gets all users recipes       | [Response]() |
-| GET    | /recipes/public                 | gets all recipes             | [Response]() |
-| GET    | /recipes/search-ingredents"     | gets recipes with ingredints | [Response]() |
-| DELETE | /delete/:recipeId               | deletes recipe by recipe id  | [Response]() |
-| PATCH  | /update/:recipeId               | updated fields by recipe id  | [Response]() |
-| PATCH  |                                 |                              | [Response]() |
-| DELETE |                                 |                              | [Response]() |
-
-<br>
-<br>
-
-## Recipe endpoints
-
-| HTTP Verbs | Endpoints | Action | Respose      |
-| ---------- | --------- | ------ | ------------ |
-| GET        |           |        | [Response]() |
-| GET        |           |        | [Response]() |
-| POST       |           |        | [Response]() |
-| DELETE     |           |        | [Response]() |
-| PATCH      |           |        | [Response]() |
 
 <br>
 <br>
@@ -515,21 +488,21 @@ By following these steps on a daily basis, I can ensure that the application is 
 
    Test Objective: To test the functionality of the CommentModel for saving a comment.
 
-   Test Steps:
+- Test Steps:
 
-   - Create a new comment object with a title "Test Comment", a commentText "This is a test comment", a user with a random ID, a userRating 8, and a recipe with a random ID using the CommentModel constructor.
-   - Save the comment using the comment.save() method.
-   - Find the saved comment using the CommentModel.findOne({ title: "Test Comment" }) method.
-   - Check the saved comment for the expected properties using the expect(savedComment).toBeDefined() and expect(savedComment.title).toBe("Test Comment") methods.
+  - Create a new comment object with a title "Test Comment", a commentText "This is a test comment", a user with a random ID, a userRating 8, and a recipe with a random ID using the CommentModel constructor.
+  - Save the comment using the comment.save() method.
+  - Find the saved comment using the CommentModel.findOne({ title: "Test Comment" }) method.
+  - Check the saved comment for the expected properties using the expect(savedComment).toBeDefined() and expect(savedComment.title).toBe("Test Comment") methods.
 
-   Expected Results:
+- Expected Results:
 
-   - The comment should be successfully saved to the test database
-   - The saved comment should have the expected properties such as title, commentText, user, userRating, and recipe.
+  - The comment should be successfully saved to the test database
+  - The saved comment should have the expected properties such as title, commentText, user, userRating, and recipe.
 
-     Test Output:
+  Test Output:
 
-   ![search function](docs/test-results/comments.png)
+![search function](docs/test-results/comments.png)
 
    <br>
    <br>
@@ -540,7 +513,7 @@ By following these steps on a daily basis, I can ensure that the application is 
 
    Test Steps:
 
-   - cCreate a new recipe object with the title "Test Recipe", ingredients ["Ingredient 1", "Ingredient 2"], instructions ["Step 1", "Step 2"], a category "Dinner", a user with a random ID, a cookingTime 30, a servingSize 2, a rating 5, a vegetarian true, an isPublic true, and an image "https://example.com/image.jpg" using the RecipeModel constructor.
+   - Create a new recipe object with the title "Test Recipe", ingredients ["Ingredient 1", "Ingredient 2"], instructions ["Step 1", "Step 2"], a category "Dinner", a user with a random ID, a cookingTime 30, a servingSize 2, a rating 5, a vegetarian true, an isPublic true, and an image "https://example.com/image.jpg" using the RecipeModel constructor.
    - Save the recipe using the recipe.save() method.
    - Find the saved recipe using the RecipeModel.findOne({ title: "Test Recipe" }) method.
    - Check the saved recipe for the expected properties using the expect(savedRecipe).toBeDefined() and expect(savedRecipe.title).toBe("Test Recipe") methods.
@@ -559,59 +532,281 @@ By following these steps on a daily basis, I can ensure that the application is 
 
 10. # Test Case: UserModel
 
-    Test Objective: To test the functionality of the UserModel for saving a user.
+Test Objective: To test the functionality of the UserModel for saving a user.
 
-    Test Steps:
+- Test Steps:
 
-    - Create a new user object with the email "test@example.com", password "password123", and username "testuser" using the UserModel constructor.
-    - Save the user using the user.save() method.
-    - Find the saved user using the UserModel.findOne({ email: "test@example.com" }) method.
-    - Check the saved user for the expected properties using the expect(savedUser).toBeDefined() and expect(savedUser.email).toBe("test@example.com") methods.
+  - Create a new user object with the email "test@example.com", password "password123", and username "testuser" using the UserModel constructor.
+  - Save the user using the user.save() method.
+  - Find the saved user using the UserModel.findOne({ email: "test@example.com" }) method.
+  - Check the saved user for the expected properties using the expect(savedUser).toBeDefined() and expect(savedUser.email).toBe("test@example.com") methods.
 
-    Expected Results:
+- Expected Results:
 
-    - The user should be successfully saved to the test database
-    - The saved user should have the expected properties such as email, password, and username.
-      Test Output:
+  - The user should be successfully saved to the test database
+  - The saved user should have the expected properties such as email, password, and username.
+    Test Output:
 
-      ![search function](docs/test-results/model-user.png)
+  ![search function](docs/test-results/model-user.png)
 
-      <br>
-      <br>
+  <br>
+  <br>
 
 # Production testing
 
-```javascript
-describe("POST /auth/login", () => {
-  let user;
-  beforeEach(async () => {
-    // Create a new user in the test database
-    const password = await bcrypt.hash("password", 12);
-    user = new UserModel({
-      email: "test@example.com",
-      password,
-      username: "testuser",
-    });
-    await user.save();
-  });
+Once the website is deemed functional, I start my manual testing process by creating cards in Trello to keep track of all the elements that need to be tested. I then proceed to perform the tests and document the results, which I label as either "pass," "fail," or "pass with issues." The labeling of "pass with issues" indicates that although the test itself has passed, there may be other underlying issues that need to be addressed. This comprehensive documentation of test results is crucial as it enables the whole team to stay informed about what has been tested and what actions, if any, need to be taken. It is an efficient way to ensure that the website is functioning optimally and that any potential issues are identified and addressed in a timely manner.
+![Screenshots](docs/testing.png)
 
-  afterEach(async () => {
-    // Delete the test user from the test database
-    await UserModel.deleteMany({});
-  });
+1. # Test Case : Register user
 
-  it("should return a token and a message on successful login", async () => {
-    // Send the email and password in the request body
-    const res = await request(app)
-      .post("/auth/login")
-      .send({ email: "test@example.com", password: "password" })
-      .expect(200);
+Test Case Description: Verify the registration functionality of the site
 
-    expect(res.body).toHaveProperty("token");
-    expect(res.body).toHaveProperty("msg", "You have successfully logged in");
-  });
-});
-```
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Navigate to the registration page
+          - Fill in all required fields, including a valid email address, password, and username
+          - Click the “sign up” button
+
+        - Expected Result:
+
+          - The user should be redirected to the login page
+          - The user's email address and password should be stored in the database.
+
+        - Result:  Pass ✅
+
+  <br>
+  <br>
+
+2.  # Test Case: Register validation
+
+    Test Case Description: Verify the validation of the registration form
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Navigate to the registration page
+          - Leave one or more required fields empty
+          - Click the “Register” button
+
+        - Expected Result:
+
+          - The form should display an error message for each required field that was left empty.
+          - The user should not be able to register until all required fields have been filled in.
+
+        - Result:  Pass ✅
+
+      <br>
+      <br>
+
+3.  # Test Case: Login
+
+        Test Case Description: Verify the login functionality of the site
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Navigate to the login page
+          - Enter a valid email address and password
+          - Click the “Sign In” button
+
+        - Expected Result:
+
+          - The user should be redirected to the home page
+
+        - Result:  Pass ✅
+
+    <br>
+    <br>
+
+4.  # Test Case: Login Validation
+
+        Test Case Description: Verify the validation of the login form
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Navigate to the login page
+          - Enter an incorrect email address and password
+          - Click the “Sign In” button
+
+        - Expected Result:
+
+          - The form should display an error message indicating that the login was unsuccessful.
+          - The user should not be able to log in until a valid email address and password have been entered.
+
+        - Result:  Pass ✅
+
+    <br>
+    <br>
+
+5.  # Test Case: Logout
+
+        Test Case Description: Verify the logout functionality of the site
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Navigate to the login page
+          - Enter the registered email address and password
+          - Click the “Log in” button
+          - Click the “Log out” button
+
+        - Expected Result:
+
+          - The user should be redirected to the login page
+          - The user's session should be ended, and they should no longer be able to access the site without logging in again.
+
+        - Result:  Pass ✅
+
+    <br>
+    <br>
+
+6.  # Test Case: Category Selection
+
+        Test Case Description: Verify the category selection functionality on the site
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Navigate to the Recipes page
+          - Click on the Breakfast category button
+
+        - Expected Result:
+
+          - The page should display a list of all Breakfast recipes
+          - The selected category button should have a different visual indicator to show it is selected.
+
+        - Result:  Pass ✅
+
+    <br>
+    <br>
+
+7.  # Test Case: Search Feature
+
+        Test Case Description: Verify the search functionality of the site
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Enter a recipe title in the search bar
+          - Click the “Search” button
+
+        - Expected Result:
+
+          - The website should display all recipes with the entered title in the search bar
+          - If no recipes with the entered title are found, the website should display a “No Results Found” message.
+
+        - Result:  Pass ✅
+
+    <br>
+          <br>
+
+8.  # Test Case: View Recipe Details
+
+        Test Case Description: Verify the functionality of viewing recipe details
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Navigate to the recipe page
+          - Click on a recipe image
+
+        - Expected Result:
+          - The user should be redirected to the recipe details page
+          - The recipe details page should display the recipe's rating, ingredients, instructions, serving size, cooking time and other related information.
+        - Result:  Pass ✅
+
+    <br>
+          <br>
+
+9.  # Test Case: View My Recipes
+
+        Test Case Description: Verify the functionality of viewing saved recipes after logging in
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Login with a registered email and password
+          - Click on the “My Recipes” button
+
+        - Expected Result:
+
+          - The user should be redirected to the “My Recipes” page
+          - A list of saved recipes should be displayed, including the recipe title, image, and date added.
+          - Each recipe in the list should be clickable and redirect to the recipe details page, displaying the rating, ingredients, instructions, serving size, and cooking time.
+
+        - Result:  Pass ✅
+
+    <br>
+          <br>
+
+10. # Test Case: Delete a Recipe
+
+    Test Case Description: Verify the functionality of deleting a recipe
+
+        - Test Steps:
+
+          - Login to the website
+          - Navigate to the "My Recipes" page
+          - Select a recipe that you want to delete
+          - Click the "Delete" button
+
+        - Expected Result:
+
+          - The selected recipe should be removed from the list of recipes
+          - A confirmation message should be displayed to the user indicating that the recipe has been successfully deleted
+
+        - Result:  Pass ✅
+
+      <br>
+      <br>
+
+11. # Test Case: Update a Recipe
+
+    Test Case Description: Verify the functionality of updating a recipe
+
+        - Test Steps:
+
+          - Login to the website
+          - Navigate to the "My Recipes" page
+          - Select a recipe that you want to update
+          - Click the "Update" button
+          - Update the recipe details (ingredients, instructions, etc.) as desired
+          - Click the "Save Changes" button
+
+        - Expected Result:
+
+          - The selected recipe should be updated with the new details
+            A confirmation message should be displayed to the user indicating that the recipe has been successfully updated
+
+        - Result:  Pass ✅
+
+      <br>
+      <br>
+
+12. # Test Case: Upload Image to Recipe
+
+        Test Case Description: Verify the functionality of uploading an image for a recipe
+
+        - Test Steps:
+
+          - Open the website in a web browser
+          - Login to the site
+          - Navigate to the “Add Recipe” page and add a new recipe
+          - After saving the recipe, navigate to the “Upload Image” page for that recipe
+            Choose an image from the device or drag and drop the image to the designated area
+            Click the “Upload” button
+
+        - Expected Result:
+
+          - The selected image should be uploaded and associated with the recipe
+          - The user should be redirected to the recipe details page and see the uploaded image along with all the recipe details including rating, ingredients, instructions, serving size, cooking time.
+
+        - Result:   Pass ✅
+
+    <br>
+    <br>
 
 # **References**
 
