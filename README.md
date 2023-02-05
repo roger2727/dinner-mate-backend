@@ -6,11 +6,11 @@ link to Trello Implementation plan [_here_](https://trello.com/b/cbYkzz9g/full-s
 
 link to deployed app [_here_](https://dinner-mate-frontend-production.up.railway.app/).
 
-link to frontend repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app).
+link to frontend repo [_here_](https://github.com/roger2727/dinner-mate-frontend).
 
-link to backend repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app).
+link to backend repo [_here_](https://github.com/roger2727/dinner-mate-backend).
 
-link to documentation repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app).
+link to documentation repo [_here_](https://github.com/roger2727/MitchellRoger_T3A2-A).
 
 ## Table of Contents
 
@@ -23,23 +23,17 @@ link to documentation repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app
 - [**Application Architecture Diagram**](#application-architecture-diagram)
 - [**User Stories**](#user-stories)
 - [**Implementation plan**](#implementation-plan)
-    - [**Screenshots**](#screenshots)
+  - [**Screenshots**](#screenshots)
 - [**Wireframes**](#wireframes)
-<<<<<<< HEAD
 - [Testing](#tests)
   - [Development testing](#development-testing)
   - [Production testing](#production-testing)
-=======
 - [**Slide Deck**](#slide-deck)
-- [API endpoints](#api-endpoints)
-  - [auth end points](#auth-end-points)
-  - [Recipe endpoints](#recipe-endpoints)
-  - [Recipe endpoints](#recipe-endpoints-1)
+
 - [**Tests**](#tests)
 - [Development testing](#development-testing)
   - [Server side](#server-side)
 - [Production testing](#production-testing)
->>>>>>> main
 - [**References**](#references)
 
 <br>
@@ -216,6 +210,7 @@ Overall, this process allowed for clear communication and organization within th
 ![Screenshots](docs/trello/11.png)
 ![Screenshots](docs/trello/12.png)
 ![Screenshots](docs/trello/13.png)
+![Screenshots](docs/trello/finallone.png)
 
 # **Wireframes**
 
@@ -293,8 +288,8 @@ In terms of agile methodology. Each component fits our user stories that have be
 <br>
 <br>
 
-<<<<<<< HEAD
-=======
+# <<<<<<< HEAD
+
 # **Slide Deck**
 
 ![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-1.png)
@@ -309,48 +304,6 @@ In terms of agile methodology. Each component fits our user stories that have be
 <br>
 <br>
 
-# API endpoints
-
-## auth end points
-
-| HTTP Verbs | Endpoints       | Action                  | Respose                                        |
-| ---------- | --------------- | ----------------------- | ---------------------------------------------- |
-| POST       | /auth/register/ | Register a new user     | [Response](#register-a-new-user)               |
-| GET        | /auath/login/   | login into user account | [Response](#end-point-login-into-user-account) |
-
-## Recipe endpoints
-
-<br>
-
-| HTTP   | Endpoints                       | Action                       | Respose      |
-| ------ | ------------------------------- | ---------------------------- | ------------ |
-| POST   | /recipes/                       | adds recipe                  | [Response]() |
-| POST   | /recipes/upload-image/:recipeId | adds image to recipe         | [Response]() |
-| GET    | /recipes/all                    | gets all users recipes       | [Response]() |
-| GET    | /recipes/public                 | gets all recipes             | [Response]() |
-| GET    | /recipes/search-ingredents"     | gets recipes with ingredints | [Response]() |
-| DELETE | /delete/:recipeId               | deletes recipe by recipe id  | [Response]() |
-| PATCH  | /update/:recipeId               | updated fields by recipe id  | [Response]() |
-| PATCH  |                                 |                              | [Response]() |
-| DELETE |                                 |                              | [Response]() |
-
-<br>
-<br>
-
-## Recipe endpoints
-
-| HTTP Verbs | Endpoints | Action | Respose      |
-| ---------- | --------- | ------ | ------------ |
-| GET        |           |        | [Response]() |
-| GET        |           |        | [Response]() |
-| POST       |           |        | [Response]() |
-| DELETE     |           |        | [Response]() |
-| PATCH      |           |        | [Response]() |
-
-<br>
-<br>
-
->>>>>>> main
 # **Tests**
 
 On a daily basis, I follow these steps to ensure that tests are passing and that the application is functioning correctly:
