@@ -23,11 +23,23 @@ link to documentation repo [_here_](https://trello.com/b/cbYkzz9g/full-stack-app
 - [**Application Architecture Diagram**](#application-architecture-diagram)
 - [**User Stories**](#user-stories)
 - [**Implementation plan**](#implementation-plan)
-  - [**screenshots**](#screenshots)
+    - [**Screenshots**](#screenshots)
 - [**Wireframes**](#wireframes)
+<<<<<<< HEAD
 - [Testing](#tests)
   - [Development testing](#development-testing)
   - [Production testing](#production-testing)
+=======
+- [**Slide Deck**](#slide-deck)
+- [API endpoints](#api-endpoints)
+  - [auth end points](#auth-end-points)
+  - [Recipe endpoints](#recipe-endpoints)
+  - [Recipe endpoints](#recipe-endpoints-1)
+- [**Tests**](#tests)
+- [Development testing](#development-testing)
+  - [Server side](#server-side)
+- [Production testing](#production-testing)
+>>>>>>> main
 - [**References**](#references)
 
 <br>
@@ -190,7 +202,7 @@ We also had a daily stand up where we discussed what to do next, what we are wor
 Overall, this process allowed for clear communication and organization within the team, and helped us ensure that all tasks were completed in a timely manner. It also allowed each of us to focus on our specific tasks and not get overwhelmed by the entire project.
 <br>
 
-### **screenshots**
+### **Screenshots**
 
 ![Example screenshot](/docs/trello/trello.png)
 ![Screenshots](/docs/trello/Trello-3.png)
@@ -281,6 +293,64 @@ In terms of agile methodology. Each component fits our user stories that have be
 <br>
 <br>
 
+<<<<<<< HEAD
+=======
+# **Slide Deck**
+
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-1.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-2.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-3.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-4.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-5.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-6.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-7.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-8.png)
+
+<br>
+<br>
+
+# API endpoints
+
+## auth end points
+
+| HTTP Verbs | Endpoints       | Action                  | Respose                                        |
+| ---------- | --------------- | ----------------------- | ---------------------------------------------- |
+| POST       | /auth/register/ | Register a new user     | [Response](#register-a-new-user)               |
+| GET        | /auath/login/   | login into user account | [Response](#end-point-login-into-user-account) |
+
+## Recipe endpoints
+
+<br>
+
+| HTTP   | Endpoints                       | Action                       | Respose      |
+| ------ | ------------------------------- | ---------------------------- | ------------ |
+| POST   | /recipes/                       | adds recipe                  | [Response]() |
+| POST   | /recipes/upload-image/:recipeId | adds image to recipe         | [Response]() |
+| GET    | /recipes/all                    | gets all users recipes       | [Response]() |
+| GET    | /recipes/public                 | gets all recipes             | [Response]() |
+| GET    | /recipes/search-ingredents"     | gets recipes with ingredints | [Response]() |
+| DELETE | /delete/:recipeId               | deletes recipe by recipe id  | [Response]() |
+| PATCH  | /update/:recipeId               | updated fields by recipe id  | [Response]() |
+| PATCH  |                                 |                              | [Response]() |
+| DELETE |                                 |                              | [Response]() |
+
+<br>
+<br>
+
+## Recipe endpoints
+
+| HTTP Verbs | Endpoints | Action | Respose      |
+| ---------- | --------- | ------ | ------------ |
+| GET        |           |        | [Response]() |
+| GET        |           |        | [Response]() |
+| POST       |           |        | [Response]() |
+| DELETE     |           |        | [Response]() |
+| PATCH      |           |        | [Response]() |
+
+<br>
+<br>
+
+>>>>>>> main
 # **Tests**
 
 On a daily basis, I follow these steps to ensure that tests are passing and that the application is functioning correctly:
