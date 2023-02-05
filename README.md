@@ -15,12 +15,17 @@ link to Trello Implementation plan [_here_](https://trello.com/b/cbYkzz9g/full-s
 - [**Application Architecture Diagram**](#application-architecture-diagram)
 - [**User Stories**](#user-stories)
 - [**Implementation plan**](#implementation-plan)
-  - [**screenshots**](#screenshots)
+    - [**Screenshots**](#screenshots)
 - [**Wireframes**](#wireframes)
-- [End Points](#api-endpoints)
-- [Testing](#tests)
-  - [Development testing](#development-testing)
-  - [Production testing](#production-testing)
+- [**Slide Deck**](#slide-deck)
+- [API endpoints](#api-endpoints)
+  - [auth end points](#auth-end-points)
+  - [Recipe endpoints](#recipe-endpoints)
+  - [Recipe endpoints](#recipe-endpoints-1)
+- [**Tests**](#tests)
+- [Development testing](#development-testing)
+  - [Server side](#server-side)
+- [Production testing](#production-testing)
 - [**References**](#references)
 
 <br>
@@ -183,7 +188,7 @@ We also had a daily stand up where we discussed what to do next, what we are wor
 Overall, this process allowed for clear communication and organization within the team, and helped us ensure that all tasks were completed in a timely manner. It also allowed each of us to focus on our specific tasks and not get overwhelmed by the entire project.
 <br>
 
-### **screenshots**
+### **Screenshots**
 
 ![Example screenshot](/docs/trello/trello.png)
 ![Screenshots](/docs/trello/Trello-3.png)
@@ -263,6 +268,20 @@ The design ethos for these wireframes was to make navigation between all compone
 <br>
 
 In terms of agile methodology. Each component fits our user stories that have been outlined in this document. Each user story has been broken down into tasks and components which satisfy the user story criteria. The build of these wireframes will be done in a methodical approach whereby the components with the highest amount of re-usability that satisfy multiple user story criterion will be done first, and niche components specific to some screens added later in the mix.
+
+<br>
+<br>
+
+# **Slide Deck**
+
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-1.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-2.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-3.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-4.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-5.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-6.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-7.png)
+![Slide Deck](docs/slide-deck/DinnerMate%20Slide%20Deck-8.png)
 
 <br>
 <br>
