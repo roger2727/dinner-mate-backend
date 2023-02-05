@@ -33,7 +33,7 @@ describe("DELETE /recipes/delete/:recipeId", () => {
       cookingTime: 30,
       servingSize: 4,
       rating: 5,
-      vegetarian: true,
+      // vegetarian: true,
       user: testUser._id,
     });
     await testRecipe.save();

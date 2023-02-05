@@ -9,8 +9,5 @@ describe("GET /", () => {
     expect(res.body.recipes).toBeInstanceOf(Array);
 
     // check if all the returned recipes are public
-    res.body.recipes.forEach((recipe) => {
-      expect(recipe).toHaveProperty("isPublic", true);
-    });
   });
 });

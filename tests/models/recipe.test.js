@@ -13,8 +13,8 @@ describe("RecipeModel", () => {
       cookingTime: 30,
       servingSize: 2,
       rating: 5,
-      vegetarian: true,
-      isPublic: true,
+      // vegetarian: true,
+      // isPublic: true,
       image: "https://example.com/image.jpg",
     });
 

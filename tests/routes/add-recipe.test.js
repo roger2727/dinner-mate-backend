@@ -33,8 +33,8 @@ describe("POST recipes/add", () => {
         cookingTime: 30,
         servingSize: 2,
         rating: 5,
-        vegetarian: true,
-        isPublic: true,
+        // vegetarian: true,
+        // isPublic: true,
       });
 
     recipeId = response.body.recipe._id;

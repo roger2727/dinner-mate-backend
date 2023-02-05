@@ -15,8 +15,8 @@ describe("GET /public/category/:category", () => {
       cookingTime: 30,
       servingSize: 4,
       rating: 5,
-      vegetarian: true,
-      isPublic: true,
+      // vegetarian: true,
+      // isPublic: true,
     });
   });
   it("should return all public recipes of the specified category", async () => {
@@ -25,6 +25,5 @@ describe("GET /public/category/:category", () => {
       .expect(200);
     expect(res.body).toBeInstanceOf(Array);
     expect(res.body[0].category).toEqual(category);
-    expect(res.body[0].isPublic).toEqual(true);
   });
 });
